@@ -1,0 +1,8 @@
+body{
+    background-color: rgb(88, 88, 88);
+}
+
+body textarea {
+    background-color: rgb(77, 71, 87);
+    color: rgb(255, 255, 255);
+}
