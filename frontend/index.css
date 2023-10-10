@@ -6,3 +6,27 @@ body textarea {
     background-color: rgb(77, 71, 87);
     color: rgb(255, 255, 255);
 }
+
+body pre#arvore {
+    background-color: rgb(77, 71, 87);
+    color: rgb(255, 255, 255);
+}
+
+.texto{
+    width: 100%;
+}
+
+h1{
+    color: aliceblue;
+    text-align: center;
+    margin: 20px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+.botao{
+    margin: 0 10px;
+}

@@ -3,14 +3,15 @@
 
 ### To Do
 - [x] 🐍
-- [] Front
-  - [] Inicialmente nao é essêncial que existam todas as abas
+- [x] Front
+  - [x] Aba Lexico
+  - [] Aba Semantico
+  - [] Aba Sintatico
   - [] Criar css com bootstrap
-- [] Analisador Lexico
-  - [] Remover comentários
-  - [] Remover espaços em branco
-  - [] Diferenciar Identificadores acentuados e não acentuados
-  - []
+- [x] Analisador Lexico
+  - [x] Remover comentários
+  - [x] Remover espaços em branco
+  - [x] Diferenciar Identificadores acentuados e não acentuados
 
 - 
 - [] Ponto Extra

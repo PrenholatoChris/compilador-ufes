@@ -59,55 +59,5 @@ function main(){
         console.log(`${token.type}: ${token.value}`);
     });
     
+    // arvore = teste();
 }
-
-"use strict";
-
-function teste() {
-    var parseId;
-
-    function id(i) {
-        return document.getElementById(i);
-    }
-
-
-    function parse(delay) {
-        if (parseId) {
-            window.clearTimeout(parseId);
-        }
-
-        parseId = window.setTimeout(function () {
-            var code, result, str;
-
-            code = getCode();
-            // id('info').className = 'alert-box secondary';
-
-            try {
-                result = JavaParser.parse(code);
-                str = JSON.stringify(result, null, 4);
-                // id('info').innerHTML = 'No error';
-            } catch (err) {
-                str = err.name === 'SyntaxError' 
-                    ? "Location: " + JSON.stringify(err.location, null, 4) + "\n" + err
-                    : err.name + ': ' + err.message;
-                //id('info').innerHTML  = str;
-                //id('info').className = 'alert-box alert';
-            }
-
-            //id('syntax').value = str;
-            console.log(str);
-
-            parseId = undefined;
-        }, delay || 811);
-    };
-    parse(42);
-
-    // window.on = function () {load
-    //     require(["orion/editor/edit"], function(edit) {
-    //        window.editor = edit({className: "editor"});
-    //        window.editor.getTextView().getModel().addEventListener("Changed", function () { parse(); });
-    //        parse(42);
-    //     });
-    // };
-
-};
