@@ -1,29 +1,20 @@
-// import arvore from '../main';
-
-var arvoreHtml = document.getElementById("arvore");
+var codigoElem = document.getElementById("codigo");
+var arvoreHtml = document.getElementById("tree");
 
 var compilerButton = document.getElementById("compilerButton");
 compilerButton.addEventListener("click", teste);
 
-// window.setTimeout(main , 1000);
-// function main(){
-//     // console.clear()
-//     // var arvore = localStorage.getItem("arvore");
-//     console.log(arvore.arvore);
-//     arvoreHtml.innerText = arvore.arvore;
-// }
 
+let haveError = false;
 "use strict";
 function teste() {
     var parseId;
 
     function parse(delay) {
-        // if (parseId) {
-        //     window.clearTimeout(parseId);
-        // }
+        // window.clearTimeout(parseId);
 
-        parseId = window.setInterval(function () {
-            var code, result, str, haveError;
+        // parseId = window.setInterval(function () {
+            var code, result, str;
 
             code = getCode();
             // id('info').className = 'alert-box secondary';
@@ -34,35 +25,69 @@ function teste() {
                 haveError = false;
                 // id('info').innerHTML = 'No error';
             } catch (err) {
-                str = err.name === 'SyntaxError' 
+                str = err.name === 'SyntaxError'
                     ? "Location: " + JSON.stringify(err.location, null, 4) + "\n" + err
                     : err.name + ': ' + err.message;
-                    haveError = true;
+                haveError = true;
                 // id('info').innerHTML  = str;
                 //id('info').className = 'alert-box alert';
             }
 
             //id('syntax').value = str;
-            // console.log(str);
             // localStorage.setItem("arvore",str);
-            arvoreHtml.innerText = str;
+            // arvoreHtml.innerText = str;
+            chamarGeradorDeArvore(str);
 
-            if(haveError)
-                arvoreHtml.className = 'bg-danger text-white '
-            else
-                arvoreHtml.className = ''
+            
 
             parseId = undefined;
-        }, delay || 811);
+        // }, delay /*|| 811*/);
     };
-    parse(300);
-
-    // window.on = function () {load
-    //     require(["orion/editor/edit"], function(edit) {
-    //        window.editor = edit({className: "editor"});
-    //        window.editor.getTextView().getModel().addEventListener("Changed", function () { parse(); });
-    //        parse(42);
-    //     });
-    // };
+    parse(1000);
 
 };
+
+function chamarGeradorDeArvore(str){
+    // debugger
+    const treeContainer = document.getElementById("tree");
+    // const json = document.getElementById("arvore");
+    
+    // console.log(str);
+    if(str.includes("Location")){
+        arvoreHtml.className = 'bg-danger text-white'
+        arvoreHtml.innerHTML = str
+        // arvoreHtml.appendChild(str);
+    }
+    else{
+        arvoreHtml.className = ''
+        arvore = JSON.parse(str)
+        createTree(treeContainer, arvore);
+    }
+        
+
+        
+    
+}
+
+function createTree(parentElement, data) {
+    parentElement.innerHTML = ''
+
+    const ul = document.createElement("ul");
+
+    // console.log(parentElement, data, ul)
+    for (const key in data) {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${key}:</strong>`;
+
+        if (typeof data[key] === "object" && data[key] !== null) {
+            createTree(li, data[key]);
+        } else {
+            const span = document.createElement("span");
+            span.textContent = data[key];
+            li.appendChild(span);
+        }
+
+        ul.appendChild(li);
+    }
+    parentElement.appendChild(ul);
+}

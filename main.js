@@ -2,12 +2,15 @@ var codigoElem = document.getElementById("codigo");
 // codigoElem.addEventListener("change", main);
 
 var compilerButton = document.getElementById("compilerButton");
-compilerButton.addEventListener("click", teste);
+// compilerButton.addEventListener("click", teste);
+
+
 
 function getCode(){
-    code = codigoElem.value;
-    // var arrayWords = code.split(/\s+/);
-    // console.log(arrayWords)
+    code = editor.getValue()
+    // code = codigoElem.value;
+    // document.getElementsByClassName("CodeMirror")[0].textContent
+    // console.log('aaaaaaaaaaa', editor.display)
     return code;
 }
 
@@ -61,3 +64,16 @@ function main(){
     
     // arvore = teste();
 }
+
+var textarea = document.getElementById("codigo");
+var editor = CodeMirror.fromTextArea(textarea, {
+    lineNumbers: true, // Mostrar números de linha
+    mode: "text/x-java", // Definir o modo para Java
+    theme: "default" // Escolher um tema, por exemplo, "default"
+});
+
+// editor.addEventListener('change',() =>
+//     textarea.value = editor.options.value
+// );
+
+// console.log(editor)

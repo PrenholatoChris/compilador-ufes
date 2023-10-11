@@ -1,4 +1,4 @@
-body{
+body {
     background-color: rgb(88, 88, 88);
 }
 
@@ -8,25 +8,43 @@ body textarea {
 }
 
 body pre#arvore {
-    background-color: rgb(77, 71, 87);
+    /* background-color: rgb(77, 71, 87); */
     color: rgb(255, 255, 255);
 }
 
-.texto{
+.texto {
     width: 100%;
 }
 
-h1{
+h1 {
     color: aliceblue;
     text-align: center;
     margin: 20px;
 }
 
-header{
+header {
     display: flex;
     justify-content: center;
 }
 
-.botao{
+.botao {
     margin: 0 10px;
+}
+
+.CodeMirror {
+    height: auto !important;
+    margin: 20px 80px;
+    background-color: aliceblue !important;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.node {
+    margin-left: 20px;
+}
+
+#credits, #tree{
+    color: white;
 }

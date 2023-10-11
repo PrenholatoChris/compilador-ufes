@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="../frontend/index.css" rel="stylesheet">
-    <!-- <link href="caminho/para/prism.css" rel="stylesheet">
-    <script src="caminho/para/prism.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Compilador Java - Web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="../frontend/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/clike/clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <title>Compilador Java - Web</title>
 </head>
+
 <body class="mx-3">
-    <h1>Compilador java</h1>
-    
-    <header class="mb-3">
-        <div class="btn-group botao" role="group" aria-label="Button group with nested dropdown">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Tipo de Analisador
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Analisador Lexico</a></li>
-                <li><a class="dropdown-item" href="#">Analisador sla2</a></li>
-                <li><a class="dropdown-item" href="#">Analisador sla3</a></li>
-              </ul>
-            </div>
-        </div>
-        <button id="compilerButton" class="btn btn-primary botao">Compilar</button>
-    </header>
+  <h1>Compilador java</h1>
 
-    <main class="">
-        <textarea name="" id="codigo" cols="200" rows="20" onchange="getCode" class="texto">
-package js.java.parser;
-
-import static java.lang.System.out;
-
-import java.util.*;
-
+  <header class="mb-3">
+    <div class="btn-group botao" role="group" aria-label="Button group with nested dropdown">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Tipo de Analisador
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Analisador Lexico</a></li>
+          <li><a class="dropdown-item" href="#">Analisador sla2</a></li>
+          <li><a class="dropdown-item" href="#">Analisador sla3</a></li>
+        </ul>
+      </div>
+    </div>
+    <button id="compilerButton" class="btn btn-primary botao">Compilar</button>
+  </header>
+  <main class="">
+    <textarea name="" id="codigo" cols="500" rows="20" class="texto">
 public class HelloWorld {
-  public static void main(final String[] args) {
-    final List<String> ls = new ArrayList<>();
-    ls.addAll(Arrays.asList("Hello", "World!"));
-    System.out.println(ls);
-  }
+    public static void main(final String[] args) {
+      System.out.println("Helooooooo");
+    }
+    public void teste() {
+      System.out.println("mtknack");
+    }
 }
-        </textarea>
+    </textarea>
 
-        <pre name="" id="arvore" cols="200" rows="20" onchange="getCode" class="texto">
-           
-        </pre>
-        <div>
-            <p>Powered by<p>
-            <p>Chistian, Matheus, Daniel, Vanderson</p>
-        </div>
-    </main>
-    <footer>
 
-    </footer>
-    <script src="../main.js"></script>
-    <script src="./index.js"></script>
-    <script src="../lib/javaparser7.min.js"></script>
-    <!-- <script>Prism.highlightAll();</script> -->
+    <div name="" id="arvore" cols="200" rows="20"  class="texto">
 
+    </div>
+
+    <div id="tree"></div>
+    <div id="credits">
+      <p>Powered by
+      <p>Chistian, Matheus, Daniel, Vanderson</p>
+    </div>
+  </main>
+  <footer>
+
+  </footer>
+  <script src="../main.js"></script>
+  <script src="./index.js"></script>
+  <script src="../lib/javaparser7.min.js"></script>
 </body>
+
 </html>
